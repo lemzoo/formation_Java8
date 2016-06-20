@@ -1,0 +1,14 @@
+package com.company.tp.lanceur;
+
+import com.company.tp.maison.Maison;
+
+public class LanceurMaison {
+
+	public static void main(String[] args) {
+		//Instanciation de l'objet Maison
+		Maison maMaison = new Maison();
+		
+		
+	}
+
+}

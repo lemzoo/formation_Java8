@@ -1,0 +1,51 @@
+package com.company.tp.horloge;
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.SimpleTimeZone;
+import java.util.TimeZone; // TimeZone, SimpleTimeZone, Calendar, GregorianCalendar
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+
+public class Horloge extends JPanel implements Runnable {
+	private JLabel	labHorloge = new JLabel("Il est :  ");
+	private Thread myThread;
+
+	public Horloge() {
+		add(labHorloge);
+		myThread = new Thread(this);
+		// TODO demarrer le thread 
+		myThread.start();
+	}
+
+
+	public void run() {
+		//TODO
+		int iHeure, iMinute, iSeconde; 
+		String sHeureFormattee="";
+		while (true) {
+			try{
+				// suspendre le thread pendant 1 seconde
+				// TODO
+				Thread.sleep(1000);
+				
+				// Recuperer l'heure courante a partir du GregorianCalendar
+				// setter le label avec lheure : HOUR.MINUT.SECND
+				// TODO instancier le  calendrier
+				Calendar unCalendar = new GregorianCalendar();
+				iHeure = unCalendar.get(Calendar.HOUR);
+				iHeure = unCalendar.get(Calendar.HOUR);
+				iHeure = unCalendar.get(Calendar.HOUR);
+				// maj l'IHM
+				//labCpt.setText("Il est: "
+			}// try
+			catch (InterruptedException e){
+				e.toString();
+			}// catch
+		} // while
+	}
+
+
+} // class Horloge

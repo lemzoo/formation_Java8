@@ -1,0 +1,12 @@
+/**
+ * 
+ */
+package com.company.tp.interfaces;
+
+/**
+ * @author ib
+ *
+ */
+public interface ConsommateurDeCourant {
+
+}

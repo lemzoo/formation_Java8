@@ -1,0 +1,94 @@
+package com.company.tp.compteur;
+
+import com.company.tp.appareils.AppareilElectrique;
+import com.company.tp.interfaces.FournisseurDeCourant;
+
+public class Compteur extends AppareilElectrique implements FournisseurDeCourant{
+	private int iMaxWatts; 
+	private int iWattsCourants = 0; 
+	private boolean bDisjoncte = false; 
+	
+	/**
+	 * constructeur de la classe compteur
+	 * @param pMarque
+	 * @param pModele
+	 * @param pPuissance
+	 * @param pMaxWatts
+	 */
+	public Compteur (String pMarque,String pModele, int pPuissance, int pMaxWatts){
+		super(pMarque, pModele, pPuissance); 
+		this.iMaxWatts = pMaxWatts;
+	}
+	
+	/**
+	 * Method getPuissanceMax( ) renvoie la puissance 
+	 * que le compteur a compté
+	 * 
+	 * @return iMaxWatts
+	 */
+	public int getPuissanceMax(){
+		return this.iMaxWatts;
+	}
+	
+	/**
+	 * Method getWattsCourants( ) renvoie le watts  
+	 * correspondant au courant consommé
+	 * 
+	 * @return iWattsCourants
+	 */
+	public int getWattsCourants(){
+		return this.iWattsCourants;
+	}
+	
+	/**
+	 * Method isDisjoncte( ) permet de renvoyer 
+	 * le statut de disjonction du compteu
+	 * 
+	 * @return bDisjoncte
+	 */
+	public boolean isDisjoncte(){
+		return this.bDisjoncte;
+	}
+	
+	/**
+	 * Method disjoncter( ) permet de disjoncter le compteur
+	 * 
+	 */
+	public void disjoncter (){
+		this.bDisjoncte = true;
+	}
+	
+	/**
+	 * Methode getEnergieFournie ( )
+	 */
+	public int getEnergieFournie(){
+		
+	}
+	
+	/**
+	 * Method 
+	 */
+	@Override
+	public void connecter() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deconnecter() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void demanderEnergie(int pQuantiteWatts) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int getEnergieFournie() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+}

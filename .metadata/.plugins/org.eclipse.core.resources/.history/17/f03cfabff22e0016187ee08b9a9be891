@@ -1,0 +1,110 @@
+package com.company.tp.appareils;
+/**
+ * Classe AppareilThermostate construit l'appareil Electrique correspondant au
+ * thermostat.
+ * 
+ * date 09-06-2016
+ * @author Lamine BA
+ * 
+ * @version 1.0
+ */
+public class AppareilThermostate extends AppareilElectrique {
+
+	private int iPuissance = 0;
+	private int iIncPuissance = 20;
+	private int iValeurThermostat = 0;
+	private int iValeurThermostatMax = 20;
+
+	/**
+	 * Constructeur de la super classe prenant en paramètre les arguments ci
+	 * dessous
+	 * 
+	 * @param pMarque La marque de l'appareil thermostaté
+	 * @param pModele Le modèle de l'appareil thermostaté
+	 * @param pPuissanceMaxWatts C'est la puissance maximale en Watts de l'appareil thermostaté
+	 * 
+	 * @author Lamine BA
+	 */
+	public AppareilThermostate(String pMarque, String pModele, int pPuissanceMaxWatts) {
+		super(pMarque, pModele, pPuissanceMaxWatts);
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * Redefinition of toString() method : Cette redefinition permet de voir 
+	 * le contenu de l'objet après l'instanciation de l'objet.
+	 */
+	@Override
+	public String toString() {
+		return "AppareilThermostate [iPuissance=" + iPuissance + ", iIncPuissance=" + iIncPuissance
+				+ ", iValeurThermostat=" + iValeurThermostat + ", iValeurThermostatMax=" + iValeurThermostatMax + "]" + super.toString();
+	}
+
+
+	/**
+	 * Method getValeurThermostat permet d'obtenir la valeur du thermostat
+	 * 
+	 * @return iValeurThermostat
+	 */
+	public int getValeurThermostat() {
+		return this.iValeurThermostat;
+	}
+
+	/**
+	 * Method setValeurThermostat() permet de modifier la valeur du thermostat
+	 * prédifini lors de la construction de l'objet.
+	 * 
+	 * @param pValeurThermostat
+	 * 
+	 * @author Lamine BA
+	 */
+	public void setValeurThermostat(int pValeurThermostat) {
+		int valeurThermostatDemandee = iValeurThermostat+pValeurThermostat;
+		if(valeurThermostatDemandee <= iValeurThermostatMax){
+			iValeurThermostat += pValeurThermostat;
+		}
+		else{
+			//Not authorized
+		}
+	}
+
+	/**
+	 * Method incrementeThermostat() permet d'incrementer de +1 
+	 * l'aiguille du thermostat
+	 * 
+	 * @return void
+	 * 
+	 * @author Lamine BA
+	 */
+	public void incrementeThermostat(){
+		//On appelle juste le set en lui passant en paramètre (1)
+		this.setValeurThermostat(1);
+	}
+	
+	/**
+	 * Method getPuissanceInstantanee permet de calculer la puissance instantanée
+	 * du thermostat en prenant en paramètre les args ci dessous : 
+	 * 
+	 * @param pPuissanceUnitaire : puissance unitaire du thermostat
+	 * @param pPositionThermostat : position de l'aiguille du thermostat
+
+	 * @return pPuissanceUnitaire x pPositionThermostat
+	 */
+	public int getPuissanceInstantanee(int pPuissanceUnitaire, int pPositionThermostat){
+		return pPuissanceUnitaire * pPositionThermostat;
+	}
+	
+	/**
+	 * Method getConsommation() permet d'obtenir la consommation du thermostat.
+	 * 
+	 * @exception non exception
+	 * @return Consommation qu'est le resultat de calcul de la puissance.
+	 * 
+	 * @author Lamine BA.
+	 */
+	public int getConsommation() {
+		//Obtenir la puissance instantanée
+		this.iPuissance = this.getPuissanceInstantanee(iIncPuissance, iValeurThermostat);
+		return this.iPuissance;
+	}
+}

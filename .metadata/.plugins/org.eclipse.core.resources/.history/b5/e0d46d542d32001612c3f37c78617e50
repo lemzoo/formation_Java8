@@ -1,0 +1,85 @@
+/**
+ * 
+ */
+package com.company.tp.lanceur;
+
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.awt.HeadlessException;
+import java.awt.LayoutManager;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
+
+/**
+ * Classe Fenetre 
+ * @author Lamine
+ *
+ */
+public class Fenetre extends JFrame implements MouseListener{
+	
+	private JLabel label1, label2, label3, label4; 
+	
+	private JTextField texte1, texte2, texte3, texte4; 
+	
+	private JButton btnEnvoyer; 
+	
+	public Fenetre (){
+		this.setTitle("Saisie des employées");
+		this.setSize(200, 300);
+		
+		label1 = new JLabel("Votre nom : "); 
+		label2 = new JLabel("Votre prenom : "); 
+		label3 = new JLabel("Votre age : "); 
+		label4 = new JLabel("Votre salaire : "); 
+		
+		texte1 = new JTextField();
+		texte2 = new JTextField();
+		texte3 = new JTextField();
+		texte4 = new JTextField();
+		
+		btnEnvoyer = new JButton("Envoyer");
+		
+		Container container = this.getContentPane();
+		
+		LayoutManager layoutManager = new GridLayout(5,2;)
+	}
+	
+	
+	
+	@Override
+	public void mouseClicked(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

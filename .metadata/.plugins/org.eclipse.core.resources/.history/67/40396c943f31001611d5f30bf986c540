@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package com.cgi.tp.appareils;
+
+/**
+ * @author ib
+ *
+ */
+public class Bordereau {
+
+	/**
+	 * 
+	 */
+	public Bordereau() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

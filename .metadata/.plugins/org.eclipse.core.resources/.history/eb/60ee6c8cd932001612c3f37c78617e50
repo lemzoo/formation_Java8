@@ -1,0 +1,94 @@
+package com.cgi.tp.ihm;
+
+import java.awt.Dimension;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
+import com.cgi.tp.appareils.AppareilThermostate;
+
+
+public class PanneauThermostat extends PanneauAppareil implements ActionListener{
+
+	private JLabel lblThermostat;
+	private JButton btnAugmenterThermostat;
+	private JButton btnDiminuerThermostat;
+
+	private int thermostatCourant;
+
+	public PanneauThermostat(AppareilThermostate pAppThermo, PanneauCompteur pPanoC){
+		super(pAppThermo, pPanoC);
+
+		btnDiminuerThermostat = new JButton("-");
+		btnDiminuerThermostat.setMargin(new Insets(2,2,2,2));
+		btnDiminuerThermostat.setEnabled(false);
+		btnDiminuerThermostat.addActionListener(this);
+		add(btnDiminuerThermostat);
+
+		thermostatCourant=pAppThermo.getThermostat();
+		lblThermostat=new JLabel();
+		lblThermostat.setPreferredSize(new Dimension(20,20));
+		afficherThermostat();
+		add(lblThermostat);
+
+		btnAugmenterThermostat = new JButton("+");
+		btnAugmenterThermostat.setMargin(new Insets(2,2,2,2));
+		btnAugmenterThermostat.setEnabled(false);
+		btnAugmenterThermostat.addActionListener(this);
+		add(btnAugmenterThermostat);
+	}
+
+
+
+
+
+	public void actionPerformed(ActionEvent evt){
+	// On laisse traiter les actions demarrer et arreter au parent
+	    super.actionPerformed(evt);
+
+		AppareilThermostate cetAppareil=(AppareilThermostate)appareil;
+
+		Object src = evt.getSource();
+		if (src == btnDemarrer) {
+			btnAugmenterThermostat.setEnabled(true);
+			btnDiminuerThermostat.setEnabled(true);
+		}
+		else if (src == btnArreter) {
+			btnAugmenterThermostat.setEnabled(false);
+			btnDiminuerThermostat.setEnabled(false);
+		}
+		else if(src == btnAugmenterThermostat){
+			cetAppareil.incrementeThermostat();
+			lePanoCompteur.majConso();
+			
+			afficherThermostat();
+		}
+		else if (src == btnDiminuerThermostat){
+			cetAppareil.decrementeThermostat();
+			lePanoCompteur.majConso();
+			
+			afficherThermostat();
+		}//btnDiminuerThermostat
+	}//actionPerformed(ActionEvent evt)
+
+	
+	
+	
+	private void afficherThermostat(){
+		AppareilThermostate  cetAppareil=(AppareilThermostate)appareil;
+		String s=new Integer(cetAppareil.getThermostat()).toString();
+		if (s.length()<2)s="0"+s;
+		lblThermostat.setText(s);
+	}
+	
+	//En cas de disjonctage, permet d initialiser les elements du pano
+	public void initPano() {
+		super.initPano();
+		btnAugmenterThermostat.setEnabled(false);
+		btnDiminuerThermostat.setEnabled(false);
+		lblThermostat.setText("0");	
+	}
+}//PanneauAppareil

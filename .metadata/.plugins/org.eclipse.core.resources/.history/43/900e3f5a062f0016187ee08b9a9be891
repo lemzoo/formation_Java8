@@ -1,0 +1,173 @@
+package com.company.tp.appareils;
+/**
+ * Classe AppareilThermostate construit l'appareil Electrique correspondant au
+ * thermostat.
+ * 
+ * date 09-06-2016
+ * @author Lamine BA
+ * 
+ * @version 1.0
+ */
+public class AppareilThermostate extends AppareilElectrique {
+
+	private int iPuissance = 0;
+	private int iIncPuissance = 20;
+	private int iThermostat = 0;
+	private int iThermostatMax = 20;
+
+	/**
+	 * Constructeur de la super classe prenant en paramètre les arguments ci
+	 * dessous
+	 * 
+	 * @param pMarque La marque de l'appareil thermostaté
+	 * @param pModele Le modèle de l'appareil thermostaté
+	 * @param pPuissanceMaxWatts C'est la puissance maximale en Watts de l'appareil thermostaté
+	 * 
+	 * @author Lamine BA
+	 */
+	public AppareilThermostate(String pMarque, String pModele, int pPuissanceMaxWatts) {
+		super(pMarque, pModele, pPuissanceMaxWatts);
+		// TODO Auto-generated constructor stub
+	}
+	
+	/**
+	 * Constructeur de la super classe prenant en paramètre les arguments ci
+	 * dessous
+	 * 
+	 * @param pMarque La marque de l'appareil thermostaté
+	 * @param pModele Le modèle de l'appareil thermostaté
+	 * @param pPuissanceMaxWatts C'est la puissance maximale en Watts de l'appareil thermostaté
+	 * @param pThermostatMax
+	 * 
+	 * @author Lamine BA
+	 */
+	public AppareilThermostate(String pMarque, String pModele, int pPuissanceMaxWatts, int pThermostatMax) {
+		super(pMarque, pModele, pPuissanceMaxWatts);
+		// TODO Auto-generated constructor stub
+		this.iThermostat = pThermostat;
+	}
+
+	/**
+	 * Redefinition of toString() method : Cette redefinition permet de voir 
+	 * le contenu de l'objet après l'instanciation de l'objet.
+	 */
+	@Override
+	public String toString() {
+		return "AppareilThermostate [iPuissance=" + iPuissance + ", iIncPuissance=" + iIncPuissance
+				+ ", iThermostat=" + iThermostat + ", iThermostatMax=" + iThermostatMax + "]" + super.toString();
+	}
+
+
+	/**
+	 * Method getValeurThermostat permet d'obtenir la valeur du thermostat
+	 * 
+	 * @return iThermostat
+	 */
+	public int getValeurThermostat() {
+		return this.iThermostat;
+	}
+
+	/**
+	 * Method setValeurThermostat() permet de modifier la valeur du thermostat
+	 * prédifini lors de la construction de l'objet.
+	 * 
+	 * @param pThermostat
+	 * 
+	 * @author Lamine BA
+	 */
+	public void setValeurThermostat(int pThermostat) {
+		int valeurThermostatDemandee = iThermostat+pThermostat;
+		if(valeurThermostatDemandee <= iThermostatMax){
+			iThermostat += pThermostat;
+		}
+		else{
+			//Not authorized
+		}
+	}
+
+	/**
+	 * Method incrementeThermostat() permet d'incrementer de +1 
+	 * l'aiguille du thermostat
+	 *  
+	 * @author Lamine BA
+	 */
+	public void incrementeThermostat(){
+		//On appelle juste le set en lui passant en paramètre (1)
+		this.setValeurThermostat(1);
+	}
+	
+	/**
+	 * Method getPuissanceInstantanee permet de calculer la puissance instantanée
+	 * du thermostat en prenant en paramètre les args ci dessous : 
+	 * 
+	 * @param pPuissanceUnitaire : puissance unitaire du thermostat
+	 * @param pPositionThermostat : position de l'aiguille du thermostat
+
+	 * @return pPuissanceUnitaire x pPositionThermostat
+	 */
+	public int getPuissanceInstantanee(int pPuissanceUnitaire, int pPositionThermostat){
+		return pPuissanceUnitaire * pPositionThermostat;
+	}
+	
+	/**
+	 * Method getConsommation() permet d'obtenir la consommation du thermostat.
+	 * 
+	 * @return Consommation qu'est le resultat de calcul de la puissance.
+	 * 
+	 * @author Lamine BA.
+	 */
+	public int getConsommation() {
+		//Obtenir la puissance instantanée
+		this.iPuissance = this.getPuissanceInstantanee(iIncPuissance, iThermostat);
+		return this.iPuissance;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + iIncPuissance;
+		result = prime * result + iPuissance;
+		result = prime * result + iThermostat;
+		result = prime * result + iThermostatMax;
+		return result;
+	}
+
+	/** 
+	 * redefinition de la methode equals
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AppareilThermostate other = (AppareilThermostate) obj;
+		if (iIncPuissance != other.iIncPuissance)
+			return false;
+		if (iPuissance != other.iPuissance)
+			return false;
+		if (iThermostat != other.iThermostat)
+			return false;
+		if (iThermostatMax != other.iThermostatMax)
+			return false;
+		return true;
+	}
+	
+	/**
+	 * Methode arreter( ) permet d'arrêter l'appareil thermostat et 
+	 * de remettre la valeur du thermostat à zero. 
+	 */
+	public void arreter(){
+		this.iThermostat = 0;
+	}
+	
+	
+	
+}

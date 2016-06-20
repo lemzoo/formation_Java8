@@ -1,0 +1,96 @@
+package com.company.tp.compteur;
+
+import java.util.Enumeration;
+import java.util.Vector;
+
+import com.company.tp.exception.CompteurADisjoncterException;
+import com.company.tp.interfaces.ConsommateurDeCourant;
+import com.company.tp.interfaces.FournisseurDeCourant;
+
+public class Compteur implements FournisseurDeCourant{
+	private int iMaxWatts; 
+	private Vector<ConsommateurDeCourant> lesEltsBranches;
+	
+	/**
+	 * constructeur de la classe compteur
+	 * @param pMaxWatts
+	 */
+	public Compteur (int pMaxWatts){
+		this.iMaxWatts = pMaxWatts;
+		this.lesEltsBranches = new Vector();
+	}
+	
+	/**
+	 * Method getMaxWatts( ) renvoie la puissance 
+	 * que le compteur a compté
+	 * 
+	 * @return iMaxWatts
+	 */
+	public int getMaxWatts(){
+		return this.iMaxWatts;
+	}
+	
+	
+	/**
+	 * @param iMaxWatts the iMaxWatts to set
+	 */
+	public void setMaxWatts(int iMaxWatts) {
+		this.iMaxWatts = iMaxWatts;
+	}
+	
+	/**
+	 * Method Connecter 
+	 */
+	@Override
+	public void connecter(ConsommateurDeCourant pConsommateur) throws CompteurADisjoncterException{
+		try{
+			this.lesEltsBranches.add(pConsommateur);
+		}catch(CompteurADisjoncterException disjonctage){
+			int puissanceDemandee = this.iMaxWatts + pConsommateur.getConsommation();
+			new CompteurADisjoncterException("Disjonctage ", pcompteurEnCause, pPuissanceDemandee)
+		}
+		
+	}
+
+	@Override
+	public void deconnecter(ConsommateurDeCourant pConsommateur) {
+		lesEltsBranches.remove(pConsommateur);
+	}
+
+	
+	/**
+	 * Method disjoncter( ) permet de disjoncter le compteur
+	 * 
+	 */
+	@Override
+	public void disjoncter (){
+		System.out.println("Disjonctage du compteur");
+		for (Enumeration e = lesEltsBranches.elements(); e.hasMoreElements();){
+			((ConsommateurDeCourant)e.nextElement()).arreter();
+		}
+	}
+	
+	/**
+	 * Methode getEnergieFournie ( ) permet d'obtenir l'energie consommé
+	 */
+	@Override
+	public int getEnergieFournie() {
+		int iConsommationTotale = 0; 
+		for (Enumeration e = lesEltsBranches.elements(); e.hasMoreElements();){
+			iConsommationTotale += ((ConsommateurDeCourant)e.nextElement()).getConsommation();
+			
+			if(iConsommationTotale > iMaxWatts){
+				iConsommationTotale = -1;
+				disjoncter();
+				break;
+			}
+		}
+		return iConsommationTotale;
+	}
+
+	@Override
+	public void demanderEnergie(int pQuantiteWatts) {
+		// TODO Auto-generated method stub
+		
+	}
+}

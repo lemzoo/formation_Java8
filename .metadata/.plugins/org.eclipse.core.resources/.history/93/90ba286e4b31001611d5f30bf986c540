@@ -1,0 +1,102 @@
+/**
+ * 
+ */
+package com.company.tp.bordereau;
+import java.util.Comparator;
+import java.util.Enumeration; 
+import java.util.Collections;
+import java.util.Vector;
+
+import com.company.tp.appareils.Appareil;
+
+import java.util.Enumeration;
+import java.util.Collections;
+
+
+/**
+ * Classe "Bordereau" contiendra un liste de collection et 
+ * de tableau des appareils créés dans le TP Domotique. La classe bordereau 
+ * hérite de la classe Vector de java. 
+ * 
+ * Date : 13-06-2016
+ * @author Lamine BA
+ * @version 1.0
+ */
+public class Bordereau extends Vector{
+
+	/**
+	 * Constructeur Bordereau( ) sans paramètre
+	 * 
+	 */
+	public Bordereau() {
+		super();
+	}
+	
+	/**
+	 * Method afficher( ) permet d'afficher le contenu de la classe vector en 
+	 *parcourant le contenu de bordereau. 
+	 */
+	public void afficher(){
+		for(Enumeration e = this.elements(); e.hasMoreElements();){
+			Appareil appareil = (Appareil) e.nextElement();
+			System.out.println(appareil);
+			System.out.println("---------------------------");
+		}
+	}
+	
+	/**
+	 * Method trierCroissant( ) permet de faire un trie croissant du contenu de bordereau. 
+	 * Elle implémente la methode "SortByCroissant" de la classe Vector pour faire la comparaison.
+	 * 
+	 */
+	public void trierCroissant(){
+		
+	}
+	
+	/**
+	 * Method trierDecroissant( ) permet de faire un trie decroissant du contenu de bordereau. 
+	 * Elle implémente la methode "SortByDecroissant" de la classe Vector pour faire la comparaison.
+	 * 
+	 */
+	public void trierDecroissant(){
+		
+	}
+}
+
+/**
+ * Class SortByCroissant permet de trier deux objets de manière croissants
+ * 
+ * @author Lamine BA
+ *
+ */
+class SortByCroissant implements Comparator {
+
+	@Override
+	public int compare(Object pObject1, Object pObject2) {
+		//Comparer la marque de l'appareil
+		String marque1 = ((Appareil)pObject1).getMarque();
+		String marque2 = ((Appareil)pObject2).getMarque();
+		
+		return marque1.compareTo(marque2);
+	}
+	
+}
+
+/**
+ * Class SortByDecroissant permet de trier deux objets de manière decroissants
+ * 
+ * @author Lamine
+ *
+ */
+class SortByDecroissant implements Comparator {
+
+	@Override
+	public int compare(Object pObject1, Object pObject2) {
+		//Comparer la marque de l'appareil
+		String marque1 = ((Appareil)pObject1).getMarque();
+		String marque2 = ((Appareil)pObject2).getMarque();
+		
+		return -(marque1.compareTo(marque2));
+	}
+	
+}

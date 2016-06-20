@@ -1,0 +1,52 @@
+/**
+ * 
+ */
+package com.company.tp.lanceur;
+
+import com.company.tp.appareils.AppareilElectrique;
+import com.company.tp.appareils.AppareilThermostate;
+import com.company.tp.bordereau.Bordereau;
+
+/**
+ * LanceurCollection est le main de 
+ * @author Lamine BA
+ *
+ */
+public class LanceurCollection {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		System.out.println("<----- DEBUT TP COLLECTION ----->");
+		
+		//Creer les deux appareils
+		//1. AppareilThermostate 
+		AppareilThermostate appThermostate = new AppareilThermostate("Philips","mod123",400);
+		
+		//2. AppareilElectrique
+		AppareilElectrique appelectrique1 = new AppareilElectrique("DELL","GX100",500);
+		AppareilElectrique appelectrique2 = new AppareilElectrique("MACBOOK","AIR_i7",1500);
+		
+		//Créer le bordereau 
+		Bordereau bordereau = new Bordereau();
+		bordereau.add(appThermostate);
+		bordereau.add(appelectrique1);
+		bordereau.add(appelectrique2);
+		
+		//Afficher le bordereau 
+		System.out.println("Sans trie");
+		bordereau.afficher();
+		
+		//Trier par ordre croissant
+		System.out.println("Trie par ordre croissant");
+		
+		//Trier par order décroissant
+		System.out.println("Trier par order décroissant");
+		bordereau.trierDecroissant();
+		
+		
+		System.out.println("<----- FIN TP COLLECTION ----->");
+	}
+
+}

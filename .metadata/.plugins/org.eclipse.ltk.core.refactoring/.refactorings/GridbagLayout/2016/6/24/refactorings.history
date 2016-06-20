@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;fskdjfksd.java&apos; to &apos;Exemple.java&apos;&#x0D;&#x0A;- Original project: &apos;GridbagLayout&apos;&#x0D;&#x0A;- Original element: &apos;fskdjfksd.java&apos;&#x0D;&#x0A;- Renamed element: &apos;Exemple.java&apos;" description="Rename compilation unit &apos;fskdjfksd.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;{fskdjfksd.java" name="Exemple.java" references="false" stamp="1465916452715" version="1.0"/>
+</session>

@@ -1,0 +1,49 @@
+/**
+ * 
+ */
+package com.company.tp.espacemembre;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.LayoutManager;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+/**
+ * @author Lamine
+ *
+ */
+public class Fenetre {
+
+	public static void main(String[] args) {
+		JFrame maFenetre = new JFrame();
+		
+		Container container = maFenetre.getContentPane();
+		
+		LayoutManager layoutManager = new FlowLayout(FlowLayout.LEFT, 5, 5); 
+		
+		container.setLayout(layoutManager);
+		
+		JLabel labelNom = new JLabel("Votre nom");
+		JTextField jtxtNom = new JTextField(20);
+		
+		JLabel labelMotDePasse = new JLabel("Votre mot de passe"); 
+		JPasswordField jpwdMotDePasse = new JPasswordField(10); 
+		
+		/*
+		 * Insertion des composants label, textfield et jpassword
+		 */
+		container.add(labelNom); container.add(jtxtNom); 
+		container.add(labelMotDePasse); container.add(jpwdMotDePasse); 
+		
+		maFenetre.pack();
+		maFenetre.setResizable(false);
+		
+		maFenetre.setVisible(true);
+		
+		maFenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+}

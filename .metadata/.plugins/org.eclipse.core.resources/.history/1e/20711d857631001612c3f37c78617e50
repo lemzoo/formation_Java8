@@ -1,0 +1,17 @@
+package com.company.tp.lanceur;
+
+
+import com.company.tp.appareils.AppareilElectrique;
+import com.company.tp.appareils.AppareilSecurisee;
+import com.company.tp.appareils.AppareilThermostate;
+
+public class Lanceur {
+	
+		public static void main(String [] args){
+		
+		System.out.println("Bonjour");
+		System.out.println("---------------");
+		System.out.println("---------------");
+	}
+
+}

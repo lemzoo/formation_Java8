@@ -1,0 +1,19 @@
+package snippet;
+
+public class Snippet {
+	(default package)
+	com.company.tp.appareils
+	com.company.tp.compteur
+	com.company.tp.ihm
+	com
+	(default package)
+	com.company.tp.appareils
+	com.company.tp.compteur
+	com.company.tp.ihm
+	com.company.tp.interfaces(default package)
+	com.company.tp.appareils
+	com.company.tp.compteur
+	com.company.tp.ihm
+	com.company.tp.interfaces.company.tp.interfaces
+}
+

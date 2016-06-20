@@ -1,0 +1,82 @@
+/**
+ * 
+ */
+package com.company.tp.appareils;
+
+/**
+ * Classe AppareilSecurisee est un appareil sécurisé heritant de l'appareil
+ * thermostaté
+ * 
+ * @author Lamine
+ * @version 1.0
+ *
+ */
+public class AppareilSecurisee extends AppareilThermostate {
+
+	private boolean isSecuriteEnclenchee = true;
+	/**
+	 * @param pMarque
+	 * @param pModele
+	 * @param pPuissanceMaxWatts
+	 * @param pThermostat
+	 */
+	public AppareilSecurisee(String pMarque, String pModele, int pPuissanceMaxWatts, int pThermostat) {
+		super(pMarque, pModele, pPuissanceMaxWatts, pThermostat);
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * Redefinition de la methode toString( )
+	 * @see java.lang.Object#toString()
+	 * 
+	 * @author Lamine BA.
+	 */
+	@Override
+	public String toString() {
+		//return "AppareilSecurisee [isSecuriteEnclenchee=" + isSecuriteEnclenchee + "]" + super.toString();
+		
+		return "Marque : " + super.getMarque() + "\n" + 
+			   "Modele : " + super.getModele() + "\n" + 
+		       "Puissance : " + super.getPuissance() + "\n" + 
+		       "Marque : " + super.getThermostat() + "\n" + 
+		       "Securité enclenchée : " + this.isSecuriteEnclenchee + "\n" + 
+		       "----------------------------------";
+	}
+	
+	/**
+	 * La methode demarrer( ) permet de demarrer l'appareil securisé.
+	 * 
+	 * @author Lamine BA.
+	 */
+	public void demarrer(){
+		if(!this.isSecuriteEnclenchee){
+			super.demarrer();
+			System.out.println("L'appareil est démarré");
+		}
+		else{
+			System.out.println("L'appareil ne peut pas démarré");
+		}
+	}
+	
+	/**
+	 * La methode desenclencheSecurite( ) sert à ouvrir la porte 
+	 * de l'appareil electrique sécurisée afin de ne pouvoir le demaarrer.
+	 * 
+	 * @author Lamine BA
+	 */
+	public void desenclencheSecurite(){
+		this.isSecuriteEnclenchee = false;
+		System.out.println("La securité n'est pas enclenché !");
+	}
+	
+	/**
+	 * La methode enclencheSecurite( ) sert à fermer la porte sert à ouvrir la porte 
+	 * de l'appareil electrique sécurisée afin de pouvoir le demaarrer.
+	 * 
+	 * @author Lamine BA
+	 */
+	public void enclencheSecurite(){
+		this.isSecuriteEnclenchee = true;
+		System.out.println("Mise en marche du microonde avec enclenchement de la sécurité");
+	}
+}

@@ -1,0 +1,120 @@
+/**
+ * 
+ */
+package com.company.tp.person;
+
+import java.awt.HeadlessException;
+
+/**
+ * @author Lamine
+ *
+ */
+public class Employee {
+
+	private String sNomEmployee; 
+	private String sPrenomEmployee; 
+	private int iAgeEmployee; 
+	private int iSalaireEmployee; 
+	
+	
+
+	/**
+	 * @param sNomEmployee
+	 * @param sPrenomEmployee
+	 * @param iAgeEmployee
+	 * @param iSalaireEmployee
+	 * @throws HeadlessException
+	 */
+	public Employee(String sNomEmployee, String sPrenomEmployee, int iAgeEmployee, int iSalaireEmployee){
+		this.sNomEmployee = sNomEmployee;
+		this.sPrenomEmployee = sPrenomEmployee;
+		this.iAgeEmployee = iAgeEmployee;
+		this.iSalaireEmployee = iSalaireEmployee;
+	}
+
+	
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Employee : \n" + 
+					"NomEmployee : " + sNomEmployee + "\n" + 
+					"PrenomEmployee : " + sPrenomEmployee + "\n" + 
+					"AgeEmployee : " + iAgeEmployee + "\n" + 
+					"SalaireEmployee : " + iSalaireEmployee;
+	}
+
+
+
+	/**
+	 * @return the sNomEmployee
+	 */
+	public String getsNomEmployee() {
+		return sNomEmployee;
+	}
+
+
+
+	/**
+	 * @param sNomEmployee the sNomEmployee to set
+	 */
+	public void setsNomEmployee(String sNomEmployee) {
+		this.sNomEmployee = sNomEmployee;
+	}
+
+
+
+	/**
+	 * @return the sPrenomEmployee
+	 */
+	public String getsPrenomEmployee() {
+		return sPrenomEmployee;
+	}
+
+
+
+	/**
+	 * @param sPrenomEmployee the sPrenomEmployee to set
+	 */
+	public void setsPrenomEmployee(String sPrenomEmployee) {
+		this.sPrenomEmployee = sPrenomEmployee;
+	}
+
+
+
+	/**
+	 * @return the iAgeEmployee
+	 */
+	public int getiAgeEmployee() {
+		return iAgeEmployee;
+	}
+
+
+
+	/**
+	 * @param iAgeEmployee the iAgeEmployee to set
+	 */
+	public void setiAgeEmployee(int iAgeEmployee) {
+		this.iAgeEmployee = iAgeEmployee;
+	}
+
+
+
+	/**
+	 * @return the iSalaireEmployee
+	 */
+	public int getiSalaireEmployee() {
+		return iSalaireEmployee;
+	}
+
+
+
+	/**
+	 * @param iSalaireEmployee the iSalaireEmployee to set
+	 */
+	public void setiSalaireEmployee(int iSalaireEmployee) {
+		this.iSalaireEmployee = iSalaireEmployee;
+	}
+}

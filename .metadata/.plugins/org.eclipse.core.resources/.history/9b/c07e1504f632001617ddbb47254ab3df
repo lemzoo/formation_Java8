@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package com.company.tp.exception;
+
+/**
+ * @author ib
+ *
+ */
+public class TestException {
+
+	/**
+	 * 
+	 */
+	public TestException() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

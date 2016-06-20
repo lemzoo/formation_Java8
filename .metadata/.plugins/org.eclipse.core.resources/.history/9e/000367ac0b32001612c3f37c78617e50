@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package com.company.tp.fenetre;
+
+/**
+ * @author ib
+ *
+ */
+public class Fenetre2 {
+
+	/**
+	 * 
+	 */
+	public Fenetre2() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

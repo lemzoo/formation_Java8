@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package com.company.tp.espacemembre;
+
+/**
+ * @author ib
+ *
+ */
+public class Fenetre {
+
+	/**
+	 * 
+	 */
+	public Fenetre() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

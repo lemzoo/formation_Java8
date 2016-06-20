@@ -1,0 +1,23 @@
+/**
+ * 
+ */
+package com.company.tp.fenetre;
+
+import javax.swing.JFrame;
+
+/**
+ * Classe Fenetre( ) instancie un JFrame pour une application graphique
+ * 
+ * @author Lamine BA
+ *
+ */
+public class Fenetre extends JFrame{
+
+	/**
+	 * 
+	 */
+	public Fenetre(){
+		this.setTitle("Ma Première Fenetre");
+	}
+
+}

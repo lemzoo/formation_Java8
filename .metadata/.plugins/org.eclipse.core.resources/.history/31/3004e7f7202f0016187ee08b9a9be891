@@ -1,0 +1,43 @@
+<?php 
+
+// Connexion à la base de données
+try{
+	$bdd = new PDO("mysql:host=localhost;dbname=ESPACE_MEMBRE;charset=utf8", "root", "root");
+}
+catch(Exception $e){
+	die("Erreur : ".$e->getMessage());
+}
+// Hachage du mot de passe
+$passwordHache = sha1($_POST["passwordSaisi"]);
+$emailSaisi = $_POST["emailSaisi"];
+$connexionAuto =  $_POST["connexionAuto"];
+
+// Vérification des identifiants
+$req = $bdd->prepare("SELECT idMembre FROM membres WHERE (emailMembre = :email AND passwordMembre = :pass)");
+$req->execute(array(
+    "email" => $emailSaisi,
+    "pass" => $passwordHache)
+	);
+
+$resultat = $req->fetch();
+
+if (!$resultat){
+    echo "Mauvais identifiant ou mot de passe !";
+}
+else{
+    session_start();
+    $_SESSION["id"] = $resultat["idMembre"];
+    $_SESSION["email"] = $emailSaisi;
+    echo "Vous êtes connecté !";
+    if(!$connexionAuto){
+    	echo "Pas de connexion automatique";
+    }
+    else{
+    	echo "Affiche Cookie avant : " .$_COOKIE["email"] . " " .$_COOKIE["passwordHache"];
+    	//On set les cookies
+    	setcookie('email', "Lamine", time() + 365*24*3600, null, null, false, true);
+    	setcookie('passwordHache', "BA", time() + 365*24*3600, null, null, false, true);
+    	
+    	echo "Connexion automatique demandée";
+    }
+}

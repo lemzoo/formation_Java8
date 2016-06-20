@@ -1,0 +1,83 @@
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+import com.company.tp.appareils.AppareilElectrique;
+import com.company.tp.appareils.AppareilThermostate;
+import com.company.tp.compteur.Compteur;
+import com.company.tp.exception.CompteurADisjoncterException;
+import com.company.tp.horloge.Horloge;
+import com.company.tp.ihm.CadreGeneral;
+
+
+public class Lanceur09 {
+
+		
+	public static void main(String[] args){
+	
+		ArrayList alAppElec = new ArrayList();
+		ArrayList alAppThermos = new ArrayList();
+		
+
+		AppareilElectrique unOrdinateur = new AppareilElectrique("DELL","GX100",500);
+		AppareilThermostate unMicroOnde = new AppareilThermostate("Philips","mod123",250);
+		Compteur unCompteurEDF = new Compteur("SAGEM", "Compteur S30C2", 1250);
+		Horloge horloge = new Horloge();
+		
+		unCompteurEDF.connecter(unOrdinateur);
+		unCompteurEDF.connecter(unMicroOnde);
+			
+		CadreGeneral monInterface = new CadreGeneral(unOrdinateur, unMicroOnde, unCompteurEDF, horloge);		
+	
+		Connection connexion=null;
+		String SDatabaseName = "DSNDomotique";
+		try{
+			Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+			connexion=DriverManager.getConnection("jdbc:odbc:"+ SDatabaseName);
+		} catch (ClassNotFoundException e){
+			System.out.println("Pilote non trouvé");
+			System.exit(1);
+		} catch(SQLException e){
+			System.out.println("Erreur :"+e+" sur "+args[0]);
+			System.exit(1);
+		}
+		
+		//Obtenir un Objet Statement
+		Statement laRequete = connexion.createStatement();
+		
+		//Executer et recuperer le resultat
+		ResultSet leResultat = laRequete.executeQuery("SELECT * FROM APPAREIL_ELECTRIQUE_TBL");
+		
+		// Les variables d'exploitation
+		String sMarqueAppareil = ""; 
+		String sModeleAppareil = ""; 
+		int sPuissanceMaxAppareil = 0;
+		
+		int count = 1;
+		//Exploiter le resultat
+		System.out.println("Listing des appareils présents dans la base");
+		while(leResultat.next()){
+			sMarqueAppareil = leResultat.getString("marque"); 
+			sModeleAppareil = leResultat.getString("modele"); 
+			sPuissanceMaxAppareil = Integer.parseInt(leResultat.getString("puissanceMaxWatt")); 
+			
+			AppareilElectrique appareil = new AppareilElectrique(sMarqueAppareil, sModeleAppareil, sPuissanceMaxAppareil); 
+			System.out.println("Appareil numero : " + count);
+			System.out.println(appareil);
+			count ++;
+		}
+		
+		try{
+			
+			
+		}
+		catch(SQLException e){
+			System.out.println("Erreur :"+e+" sur "+args[0]);
+			System.exit(1);
+		}
+	}
+}

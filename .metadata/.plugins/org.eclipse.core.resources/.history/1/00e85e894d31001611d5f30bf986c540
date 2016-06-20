@@ -1,0 +1,27 @@
+/**
+ * 
+ */
+package com.company.tp.lanceur;
+
+import com.company.tp.appareils.AppareilElectrique;
+import com.company.tp.appareils.AppareilThermostate;;
+import com.company.tp.bordereau.Bordereau;
+
+/**
+ * LanceurCollection est le main de 
+ * @author Lamine BA
+ *
+ */
+public class LanceurCollection {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		System.out.println("<----- Debut TP Collection ----->");
+		
+		//Creer les deux appareils
+		AppareilThermostate appThermostat= new AppareilThermostate("Philips","mod123",400);
+	}
+
+}

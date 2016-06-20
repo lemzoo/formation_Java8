@@ -1,0 +1,30 @@
+/**
+ * 
+ */
+package com.company.tp.fenetre;
+
+import javax.swing.JFrame;
+
+/**
+ * @author Lamine BA
+ *
+ */
+public class Fenetre2 extends JFrame{
+
+	/**
+	 * 
+	 */
+	public Fenetre2() {
+		this.setTitle("Ma deuxième fenêtre");
+		
+		this.setBounds(10, 10, 300, 600);
+		
+		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+	}
+
+	public static void main (String [] args){
+		Fenetre2 maFenetre = new Fenetre2();
+		
+		maFenetre.setVisible(true);
+	}
+}

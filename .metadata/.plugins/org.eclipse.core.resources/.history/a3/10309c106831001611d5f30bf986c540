@@ -1,0 +1,14 @@
+/**
+ * 
+ */
+package com.company.tp.interfaces;
+
+/**
+ * Interface ConsommateurDeCourant implémente les méthodes 
+ * pour le consommateur de courant
+ * @author Lamine BA
+ *
+ */
+public interface ConsommateurDeCourant {
+
+}

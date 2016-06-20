@@ -1,0 +1,45 @@
+/**
+ * 
+ */
+package com.company.tp.applet;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+
+/**
+ * @author ib
+ *
+ */
+public class EvtFrame extends javax.swing.JFrame{
+	private JButton unBouton = new JButton("Cliquez moi");
+	private JCheckBox unecheckBox = new JCheckBox("Cochez moi");
+	private JLabel unLabel = new JLabel("Ici on placera les traces");
+	
+	/**
+	 * 
+	 */
+	public EvtFrame() {
+		this.add(unBouton);
+		this.add(unecheckBox);
+		this.add(unLabel);
+		
+		Ecouteur
+	}
+
+}
+
+class Ecouteur implements ActionListener{
+	public void actionPerformed(ActionEvent aEvt){
+		Object source = aEvt.getSource();
+		
+		if(source == unBouton){
+			unLabel.setText("clic bouton");
+		}
+		else if(source == uneCheckBox){
+			unLabel.setText("Changement checkBox");
+		}
+	}
+}

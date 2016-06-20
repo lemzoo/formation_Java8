@@ -1,0 +1,27 @@
+/**
+ * 
+ */
+package com.company.tp.espacemembre;
+
+import java.awt.Container;
+import java.awt.FlowLayout;
+
+import javax.swing.JFrame;
+
+/**
+ * @author Lamine
+ *
+ */
+public class Fenetre {
+
+	public static void main(String[] args) {
+		JFrame maFenetre = new JFrame();
+		
+		Container container = maFenetre.getContentPane();
+		
+		LayoutManager layoutManager = new FlowLayout(FlowLayout.LEFT, 5, 5); 
+		
+		container.setLayout(layoutManager);
+	}
+
+}

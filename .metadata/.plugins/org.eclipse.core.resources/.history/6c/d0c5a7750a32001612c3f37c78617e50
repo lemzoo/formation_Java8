@@ -1,0 +1,29 @@
+/**
+ * 
+ */
+package com.company.tp.fenetre;
+
+import javax.swing.JFrame;
+
+/**
+ * Classe Fenetre( ) instancie un JFrame pour une application graphique. 
+ * 
+ * Cette application crée une fenetre pour des clients lourd. 
+ * On utilise la bibliothèque SWING.
+ * 
+ * @author Lamine BA
+ *
+ */
+public class Fenetre extends JFrame{
+
+	/**
+	 * 
+	 */
+	public static void main (String [] args){
+		JFrame maFenetre = new JFrame();
+		maFenetre.setTitle("Ma Première Fenetre");
+		
+		maFenetre.setSize(800, 600);
+	}
+
+}

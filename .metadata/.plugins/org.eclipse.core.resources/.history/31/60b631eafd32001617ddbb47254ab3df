@@ -1,0 +1,42 @@
+/**
+ * 
+ */
+package com.company.tp.exception;
+
+import com.company.tp.compteur.Compteur;
+
+/**
+ * Classe CompteurADisjoncterException effectue un traitement d'exwception sur 
+ * la puissance demandée sur un compteur.
+ * @author Lamine BA
+ *
+ */
+public class CompteurADisjoncterException extends Exception {
+	private int iPuissanceDemandee; 
+	private String sMessageException;
+	private Compteur compteurEnCause;
+	/**
+	 * 
+	 */
+	public CompteurADisjoncterException(String pMessageException, Compteur pcompteurEnCause, int pPuissanceDemandee) {
+		super(pMessageException); 
+		sMessageException = pMessageException;
+		iPuissanceDemandee = pPuissanceDemandee; 
+		compteurEnCause = pcompteurEnCause;
+		
+		System.out.println();
+	}
+	
+	public String toString(){
+		String chaine = "";
+		chaine = sMessageException + "\n" + 
+				"----------------\n" + 
+				"La Puissance Max du compteur en cause : " + compteurEnCause.getMaxWatts() + "\n" + 
+				"La Puissance Max du compteur en cause : " + compteurEnCause.getMaxWatts() + "\n" + 
+				"La Puissance Max du compteur en cause : " + compteurEnCause.getMaxWatts() + "\n" + 
+				"La Puissance demandée est : " + iPuissanceDemandee;
+		
+		return chaine;
+	}
+
+}

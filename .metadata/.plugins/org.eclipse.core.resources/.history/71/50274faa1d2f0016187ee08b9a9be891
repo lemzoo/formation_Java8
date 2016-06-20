@@ -1,0 +1,23 @@
+<?php 
+// Hachage du mot de passe
+$passwordHache = sha1($_POST["passwordSaisi"]);
+$emailSaisi = $_POST["emailSaisi"];
+
+// Vérification des identifiants
+$req = $bdd->prepare('SELECT id FROM membres WHERE emailMembre = :email AND passwordMembre = :pass');
+$req->execute(array(
+    "email" => $emailSaisi,
+    "pass" => $passwordHache)
+	);
+
+$resultat = $req->fetch();
+
+if (!$resultat){
+    echo 'Mauvais identifiant ou mot de passe !';
+}
+else{
+    session_start();
+    $_SESSION["id"] = $resultat["idMembre"];
+    $_SESSION["email"] = $resultat["emailMembre"];
+    echo 'Vous êtes connecté !';
+}

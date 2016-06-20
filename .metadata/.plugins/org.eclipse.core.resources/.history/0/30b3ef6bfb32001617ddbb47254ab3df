@@ -1,0 +1,23 @@
+/**
+ * 
+ */
+package com.company.tp.exception;
+
+/**
+ * Classe CompteurADisjoncterException effectue un traitement d'exwception sur 
+ * la puissance demandée sur un compteur.
+ * @author Lamine BA
+ *
+ */
+public class CompteurADisjoncterException extends Exception {
+	private int iPuissanceDemandee; 
+	private String sMessageException; 
+	private 
+	/**
+	 * 
+	 */
+	public CompteurADisjoncterException() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

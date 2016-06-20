@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package com.company.tp.applet;
+
+/**
+ * @author ib
+ *
+ */
+public class EvtFrame extends javax.swing.JFrame{
+
+	/**
+	 * 
+	 */
+	public EvtFrame() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

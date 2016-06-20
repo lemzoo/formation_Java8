@@ -1,0 +1,16 @@
+/**
+ * 
+ */
+package com.company.tp.person;
+
+/**
+ * Classe Person ayant des simple propriété
+ * 
+ * @author Lamine BA
+ *
+ */
+public class Person {
+	private String sNom; 
+	private String sPrenom;
+	private String sAdresse; 
+}

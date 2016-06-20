@@ -1,0 +1,25 @@
+/**
+ * 
+ */
+package com.company.tp.horloge;
+
+import java.awt.LayoutManager;
+
+import javax.swing.JPanel;
+
+/**
+ * Horloge est une classe qui affiche l'heure courante dans 
+ * une IHM. Elle implémente le Thread
+ * 
+ * @author Lamine BA
+ * @version 1.0
+ */
+public class Horloge extends PanneauAppareil implements Thread{
+
+	/**
+	 * Constructeur par defaut
+	 */
+	public Horloge() {
+		// TODO Auto-generated constructor stub
+	}
+}

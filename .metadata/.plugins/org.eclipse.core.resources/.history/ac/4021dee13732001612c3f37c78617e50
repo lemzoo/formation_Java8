@@ -1,0 +1,20 @@
+/**
+ * 
+ */
+package com.company.tp.espacemembre;
+
+import javax.swing.JFrame;
+
+/**
+ * @author Lamine
+ *
+ */
+public class Fenetre {
+
+	public static void main(String[] args) {
+		JFrame maFenetre = new JFrame();
+		
+		Container container = maFenetre.getContentPane();
+	}
+
+}

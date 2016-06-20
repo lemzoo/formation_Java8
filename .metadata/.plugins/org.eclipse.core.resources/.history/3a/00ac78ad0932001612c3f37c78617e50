@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+package com.company.tp.fenetre;
+
+/**
+ * Classe Fenetre( ) instancie un JFrame pour une application graphique
+ * 
+ * @author Lamine BA
+ *
+ */
+public class Fenetre {
+
+	/**
+	 * 
+	 */
+	public Fenetre() extends JFrame{
+		// TODO Auto-generated constructor stub
+	}
+
+}

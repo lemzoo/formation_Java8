@@ -1,0 +1,18 @@
+/**
+ * 
+ */
+package com.company.tp.exception;
+
+/**
+ * @author Lamine
+ *
+ */
+public class TestException {
+
+	public static void main(String[] args) {
+		FileReader fr = null; 
+		BufferedReader br = null; 
+		String [] lesConfig = new String[3];
+	}
+
+}

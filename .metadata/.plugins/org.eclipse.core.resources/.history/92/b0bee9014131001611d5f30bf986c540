@@ -1,0 +1,30 @@
+/**
+ * 
+ */
+package com.cgi.tp.appareils;
+import java.util.Comparator;
+import java.util.Vector;
+import java.util.Enumeration;
+import java.util.Collections;
+
+
+/**
+ * Classe "Bordereau" contiendra un liste de collection et 
+ * de tableau des appareils créés dans le TP Domotique. La classe bordereau 
+ * hérite de la classe Vector de java. 
+ * 
+ * Date : 13-06-2016
+ * @author Lamine BA
+ * @version 1.0
+ */
+public class Bordereau extends Vector{
+
+	/**
+	 * Constructeur Bordereau( ) sans paramètre
+	 * 
+	 */
+	public Bordereau() {
+		super();
+	}
+
+}

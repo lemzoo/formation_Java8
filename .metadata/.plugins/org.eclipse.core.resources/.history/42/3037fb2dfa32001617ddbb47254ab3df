@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package com.company.tp.exception;
+
+/**
+ * @author ib
+ *
+ */
+public class CompteurADisjoncterException extends Exception {
+
+	/**
+	 * 
+	 */
+	public CompteurADisjoncterException() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,22 @@
+/**
+ * 
+ */
+package com.cgi.tp.appareils;
+
+/**
+ * Classe "Bordereau" contiendra un liste de collection et 
+ * de tableau des appareils créés dans le TP Domotique
+ * Date : 13-06-2016
+ * @author Lamine BA
+ *
+ */
+public class Bordereau {
+
+	/**
+	 * 
+	 */
+	public Bordereau() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

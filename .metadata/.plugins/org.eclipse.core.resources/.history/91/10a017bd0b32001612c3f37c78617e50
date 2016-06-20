@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+package com.company.tp.fenetre;
+
+import javax.swing.JFrame;
+
+/**
+ * @author Lamine BA
+ *
+ */
+public class Fenetre2 extends JFrame{
+
+	/**
+	 * 
+	 */
+	public Fenetre2() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

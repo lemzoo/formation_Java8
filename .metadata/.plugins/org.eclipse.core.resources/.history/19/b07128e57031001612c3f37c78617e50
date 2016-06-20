@@ -1,0 +1,16 @@
+/**
+ * 
+ */
+package com.company.tp.interfaces;
+
+/**
+ * Interface FournisseurDeCourant contient le contrat de service
+ * @author Lamine BA
+ *
+ */
+public interface FournisseurDeCourant {
+	public void connecter(ConsommateurDeCourant consommateur);
+	public void deconnecter(ConsommateurDeCourant consommateur);
+	public void demanderEnergie(int pQuantiteWatts); 
+	public int getEnergieFournie();
+}

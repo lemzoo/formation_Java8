@@ -1,0 +1,75 @@
+/**
+ * 
+ */
+package com.company.tp.maison;
+import com.company.tp.appareils.AppareilElectrique;
+import com.company.tp.appareils.AppareilThermostate;
+import com.company.tp.bordereau.*;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+
+/**
+ * Classe Maison contient l'ensemble des appareils qui seront 
+ * contenu dans un arrayList de Bordereau
+ * @author Lamine
+ *
+ */
+public class Maison {
+	Collection mesAppareils; 
+	
+	/**
+	 * Constructeur de l'objet Maison
+	 * On crée les appareils ménagers et p, mes place dans la liste
+	 */
+	public Maison(){
+		mesAppareils = new ArrayList();
+		
+		AppareilElectrique unCaftiere = new AppareilElectrique("EXPRESSO","EXP",300);
+		AppareilElectrique uneCuisiniere = new AppareilElectrique("BOSCH","B4GV",500);
+		
+		mesAppareils.add(unCaftiere);
+		mesAppareils.add(uneCuisiniere);
+		
+		mesAppareils.add(new AppareilElectrique("Lampe", "Ikea", 100));
+		mesAppareils.add(new AppareilElectrique("SFR", "Box Fibre", 400));
+
+	}
+	
+	/**
+	 * Liste l'état de tous les appareils connus
+	 *  
+	 */
+	public void status(){
+		Iterator itApp; 
+		System.out.println("<----- status ----->");
+		for(itApp = mesAppareils.iterator(); itApp.hasNext();){
+			System.out.println(itApp.next());
+		}
+	}
+	
+	/**
+	 * Arreter tous les appareils connus
+	 */
+	public void toutEteindre(){
+		Iterator itApp; 
+		System.out.println("<----- toutEteindre ----->");
+		for(itApp = mesAppareils.iterator(); itApp.hasNext();){
+			((AppareilElectrique)itApp.next()).arreter();
+		}
+	}
+	
+	/**
+	 * Allumer tous les appareils connus
+	 */
+	public void toutAllumer(){
+		Iterator itApp; 
+		AppareilElectrique unAppareilElectrique = null; 
+		System.out.println("<----- toutAllumer ----->");
+		for(itApp = mesAppareils.iterator(); itApp.hasNext();){
+			unAppareilElectrique = (AppareilElectrique)itApp.next();
+			((AppareilElectrique)itApp.next()).demarrer();
+		}
+	}
+}

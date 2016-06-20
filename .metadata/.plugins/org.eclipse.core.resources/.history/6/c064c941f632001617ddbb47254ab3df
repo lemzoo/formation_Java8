@@ -1,0 +1,28 @@
+/**
+ * 
+ */
+package com.company.tp.exception;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+
+/**
+ * @author Lamine
+ *
+ */
+public class TestException {
+
+	public static void main(String[] args) {
+		FileReader fr = null; 
+		BufferedReader br = null; 
+		String [] lesConfig = new String[3];
+		
+		try{
+			fr = FileReader("config.txt");
+		}catch(FileNotFoundException fichierNonTrouvee){
+			System.out.println("Fichier inconnu");
+		}
+	}
+
+}

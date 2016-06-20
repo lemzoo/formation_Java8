@@ -1,0 +1,19 @@
+/**
+ * 
+ */
+package com.company.tp.person;
+
+/**
+ * @author Lamine
+ *
+ */
+public class Employee {
+
+	/**
+	 * 
+	 */
+	public Employee() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,17 @@
+/**
+ * 
+ */
+package com.company.tp.interfaces;
+
+/**
+ * Interface ConsommateurDeCourant implémente les méthodes 
+ * pour le consommateur de courant
+ * @author Lamine BA
+ *
+ */
+public interface ConsommateurDeCourant {
+	public void connecter();
+	public void deconnecter();
+	public void demanderEnergie(int pQuantiteWatts); 
+	public int getEnergieFournie();
+}

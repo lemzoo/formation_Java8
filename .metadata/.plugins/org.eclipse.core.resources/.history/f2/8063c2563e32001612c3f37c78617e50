@@ -1,0 +1,121 @@
+/**
+ * 
+ */
+package com.company.tp.formulaire;
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.awt.LayoutManager;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+
+
+/**
+ * Classe Formulaire 
+ * @author Lamine BA
+ *
+ */
+public class Formulaire extends JFrame{
+	
+	private JLabel labelTitre, labelNom, labelPrenom, labelAdresse; 
+	
+	private JTextField jtxtNom, jtxtPrenom; 
+	
+	private JTextArea jtxtareaAdresse;
+	
+	private static final String[] valeur = {"Mr", "Mme", "Mlle"};
+	
+	private JComboBox jcbxTitre = new JComboBox(valeur);
+	
+	private JButton btnOk, btnAnnuler; 
+	
+	public Formulaire (){
+		this.setTitle("Formulaire d'inscription");
+		
+		//On instancie les labels et le jtxt
+		labelTitre = new JLabel("Titre");
+		labelNom = new JLabel("Nom : "); 
+		labelPrenom = new JLabel("Prenom : "); 
+		labelAdresse = new JLabel("Adresse : "); 
+		
+		jtxtNom = new JTextField(10);
+		jtxtPrenom = new JTextField(10);
+		jtxtareaAdresse = new JTextArea(4,20);
+		
+		btnOk = new JButton("OK");
+		btnAnnuler = new JButton("Annuler");
+		
+		/*
+		 * On va créer un JPanel auquel on va affecter un GridLayout
+		 * pour contenir 4 JLabel qui vont etre les designations (Libellé)
+		 * des champs définis plus haut
+		 */
+		JPanel designation = new JPanel(); 
+		
+		/*
+		 * Pour un JPanel qui est un container comme le container d'un JFrame
+		 * que l'on recupere avec getContentPane(), on peut associer un layout directement
+		 */
+		designation.setLayout(new GridLayout(4, 1,5,5));
+		
+		designation.add(labelTitre);
+		designation.add(labelNom); 
+		designation.add(labelPrenom);
+		designation.add(labelAdresse);
+		
+		JPanel champ = new JPanel(); 
+		/*
+		 * On crée un deuxième GgridLayout qui permettra d'insérer
+		 * cette fois-ci les champs correspondants
+		 */
+		champ.setLayout(new GridLayout(3, 1,5,5));
+		
+		champ.add(jcbxTitre);
+		champ.add(jtxtNom);
+		champ.add(jtxtPrenom);
+		
+		/*
+		 * On crée un troisieme GgridLayout qui permettra d'insérer
+		 * cette fois-ci des boutons
+		 */
+		JPanel panelBouton = new JPanel(); 
+		panelBouton.setLayout(new GridLayout(3,1,5,5));
+		
+		panelBouton.add(btnOk);
+		panelBouton.add(btnAnnuler);
+		
+		Container container = this.getContentPane();
+		container.setLayout(new BorderLayout());
+		
+		//On rajoute d'abord la désignation en le positionnant à WEST
+		container.add(designation, BorderLayout.WEST);
+		
+		//On rajoute ensuite champ en le positionnant à CENTER
+		container.add(champ,  BorderLayout.EAST); 
+		
+		//On rajoute enfin adresse en le positionnant à SOUTH
+		container.add(jtxtareaAdresse, BorderLayout.CENTER);
+		
+		// On rajoute en dessous les deux boutons
+		container.add(panelBouton, BorderLayout.SOUTH);
+		
+		//On dispose les différents objets sur le formulaire
+		this.pack();
+
+	}
+
+	public static void main(String[] args) {
+		Formulaire monFormulaire = new Formulaire();
+		monFormulaire.setVisible(true);
+	}
+}

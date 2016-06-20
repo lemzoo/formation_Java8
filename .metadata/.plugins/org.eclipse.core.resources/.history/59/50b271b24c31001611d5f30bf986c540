@@ -1,0 +1,21 @@
+/**
+ * 
+ */
+package com.company.tp.lanceur;
+
+/**
+ * LanceurCollection est le main de 
+ * @author Lamine BA
+ *
+ */
+public class LanceurCollection {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

@@ -1,0 +1,102 @@
+package com.company.tp.appareils;
+
+import com.company.tp.interfaces.ConsommateurDeCourant;
+
+public class AppareilElectrique extends Appareil implements ConsommateurDeCourant{
+
+	protected int iPuissance=0;
+	protected boolean isEnMarche=false;
+
+	//Constructeur
+	public AppareilElectrique(String pMarque,String pModele, int pPuissance){
+		super(pMarque, pModele);
+		iPuissance=pPuissance;
+		isEnMarche=false;
+	}// constructeur
+
+	
+	/**
+	 * Method toString() pour afficher le contenu de l'objet AppareilElectrique
+	 */
+	@Override
+	public String toString() {
+		return "AppareilElectrique [ " + super.toString() + " [iPuissance=" + iPuissance + ", isEnMarche=" + isEnMarche + "]";
+	}
+
+
+	public void setPuissance(int pPuissance) {
+		iPuissance = pPuissance;
+	} // set
+	
+	
+	public int getPuissance() {
+		return iPuissance;
+	} // get
+
+
+	public void setIsEnMarche(boolean pOnOff) {
+			isEnMarche = pOnOff ;
+	} // set
+	public boolean getIsEnMarche() {
+			return isEnMarche;
+	} // get
+
+
+	@Override
+	public void raccorderAlimentation() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void horsRaccordAlimentation() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	@Override
+	public void miseSousTension() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/**
+	 * Method coupureAlimentation( ) permet de couper 
+	 * l'alimentation de l'appareil electrique. 
+	 */
+	@Override
+	public void coupureAlimentation() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+   /**
+   * Method arreter permet d'arreter l'appareil
+   */
+	@Override
+   public void arreter() {
+   	   isEnMarche=false;
+   }//arreter
+
+   
+   /**
+	* Method demarrer( ) permet de mettre en marche l'appareil en marche
+	*/
+   @Override
+	public void demarrer() {
+	   isEnMarche=true;
+	}//demarrer
+	
+	/**
+	* retourne la consommation de l'appareil
+	*/
+   @Override
+	public int  getConsommation(){
+	  if (isEnMarche)
+  		return iPuissance;
+	  else
+  		return 0;
+	}//getConsommation
+}
